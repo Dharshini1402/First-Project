@@ -1,0 +1,42 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+</head>
+<p>productdetail works!</p>
+<img src="{{ list.imageUrl }}" width="400px" height="450px" />
+<div class="content">
+  <div class="a">
+    <h1 style="color:sandybrown;cursor: pointer">
+      {{ list.heading }}
+    </h1>
+  </div>
+
+  <div class="c">
+    <p>
+      <b>Price:{{ list.price }}</b>
+    </p>
+  </div>
+  <div class="d">
+    <p>
+      <b>Category:{{ list.category }}</b>
+    </p>
+  </div>
+  <div class="b">
+    <p>{{ list.desp }}</p>
+  </div>
+  <div class="e">
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+  </div>
+  <br />
+  <div class="f">
+    <button style="cursor: pointer;background-color:greenyellow;color:gray">
+      Add To Cart
+    </button>
+  </div>
+</div>

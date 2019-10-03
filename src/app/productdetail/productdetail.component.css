@@ -1,0 +1,10 @@
+img {
+  float: left;
+}
+div.content {
+  margin-top: 70px;
+  margin-left: 50px;
+}
+.checked {
+  color: orange;
+}

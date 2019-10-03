@@ -1,0 +1,82 @@
+<p>SignUp works!</p>
+<form style="margin-top: 3%" [formGroup]="myGroup" (ngSubmit)="handleSubmit()">
+  <div class="form">
+    <div class="aa">
+      <label style="color: red"><b> Username</b></label
+      ><br />
+      <input
+        type="text"
+        placeholder="Enter Username"
+        formControlName="name"
+        style="border-radius:5px;height: 40px;width: 100%"
+        required
+      /><br />
+      <div
+        *ngIf="myGroup.controls.name.invalid"
+        style="margin-left:0%;width: 500px;padding:10px"
+      >
+        <div *ngIf="myGroup.controls.name.errors?.required">
+          Username is required
+        </div>
+      </div>
+      <label style="color: red"><b> E-mail Id</b></label
+      ><br />
+      <input
+        type="text"
+        name="mailid"
+        formControlName="mail"
+        placeholder="Enter E-mail Id"
+        style="border-radius:5px;height: 40px;width: 100%"
+        required
+      /><br />
+      <div
+        *ngIf="myGroup.controls.mail.invalid"
+        style="margin-left:0%;width: 500px;padding:10px"
+      >
+        Email-id is required
+      </div>
+      <label style="color: red"><b> Create Password</b></label
+      ><br />
+      <input
+        type="text"
+        name="passwordname"
+        formControlName="pass"
+        placeholder="Enter Password"
+        style="border-radius:5px;height: 40px;width: 100%"
+        required
+      /><br />
+
+      <label style="color: red"><b> Confirm Password</b></label
+      ><br />
+      <input
+        type="text"
+        name="confirmname"
+        formControlName="confirm"
+        placeholder="Re-enter Password"
+        style="border-radius:5px;height: 40px;width: 100%"
+        required
+      /><br />
+
+      <label><input type="checkbox" />Remember me</label><br />
+
+      <button class="btn btn-success">Register</button>
+      <p style="float: right">
+        Already you have an account?<a
+          routerLink="/login"
+          style="color:dodgerblue"
+          >Login</a
+        >.
+      </p>
+      <div *ngIf="myGroup.touched && myGroup.errors?.mismatch">
+        Password and confirm password mismatch
+      </div>
+      <br /><br />
+      <input
+        type="button"
+        value="Load Data"
+        style="border-radius: 5px;background-color:green;color: white"
+        (click)="handleLoad()"
+      />
+    </div>
+  </div>
+</form>

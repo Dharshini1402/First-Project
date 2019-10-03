@@ -1,0 +1,83 @@
+<p>login works!</p>
+<br />
+<form (ngSubmit)="handleSubmit(login.value)" #login="ngForm">
+  <div ngModelGroup="persondetail">
+    <div class="a">
+      <label style="color: red"><b>Username</b>{{ username }}</label
+      ><br />
+      <input
+        type="text"
+        ngModel
+        name="uname"
+        #usename="ngModel"
+        placeholder="Enter Username"
+        style="border-radius:5px;height: 40px;width: 100%"
+        minlength="5"
+        maxlength="10"
+        required
+      />
+      <div
+        *ngIf="usename.touched && !usename.valid"
+        style="margin-left:0%;width: 500px"
+      >
+        <div *ngIf="usename.errors.required">
+          Username is required
+        </div>
+        <p *ngIf="usename.errors.minlength">
+          Username minimum length is{{
+            usename.errors.minlength.requiredLength
+          }}
+        </p>
+        <p *ngIf="usename.errors.maxlength">
+          Username maximum length is{{
+            usename.errors.maxlength.requiredLength
+          }}
+        </p>
+      </div>
+      <br /><br />
+      <label style="color: red"><b>Password</b></label
+      ><br />
+      <input
+        type="text"
+        ngModel
+        name="pname"
+        placeholder="Enter Password"
+        #passname="ngModel"
+        (input)="handleInput(passname)"
+        minlength="5"
+        maxlength="10"
+        style="border-radius:5px;height: 40px;width: 100%;"
+        required
+      />
+      <div
+        *ngIf="passname.touched && !passname.valid"
+        style="margin-left:0%;width: 500px"
+      >
+        <div *ngIf="passname.errors.required">
+          Password is required
+        </div>
+        <p *ngIf="passname.errors.minlength">
+          Password minimum length is{{
+            passname.errors.minlength.requiredLength
+          }}
+        </p>
+      </div>
+      <br /><br />
+      <button
+        class="btn btn-success"
+        style="width: 100%"
+        [disabled]="login.invalid"
+      >
+        Login
+      </button>
+      <label><input type="checkbox" />Remember me</label><br />
+
+      <button class="btn btn-primary" (click)="handleNav()">
+        Register Now
+      </button>
+      <span class="psw" style="float: right"
+        >Forgot <a href="#">password?</a></span
+      >
+    </div>
+  </div>
+</form>

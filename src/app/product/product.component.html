@@ -1,0 +1,53 @@
+<p>product works!</p>
+{{ title }}
+<br /><br />
+<input
+  type="text"
+  placeholder="Search.."
+  [(ngModel)]="search"
+  name="search"
+  style="padding: 10px;border-radius: 5px"
+/>
+<div class="row">
+  <div *ngFor="let value of record | customFilter: search">
+    <div class="column">
+      <div class="card">
+        <br />
+        <header>
+          <div class="image">
+            <img src="{{ value.imageUrl }}" width="200px" height="200px" />
+          </div>
+        </header>
+
+        <div class="content">
+          <div class="a">
+            <h1
+              style="color:sandybrown;cursor: pointer"
+              (click)="handleNavigate(value.heading)"
+            >
+              {{ value.heading }}
+            </h1>
+          </div>
+
+          <div class="c">
+            <p>
+              <b>Price:{{ value.price }}</b>
+            </p>
+          </div>
+          <div class="d">
+            <p>
+              <b>Category:{{ value.category }}</b>
+            </p>
+          </div>
+          <div class="b">
+            <p>{{ value.desp }}</p>
+          </div>
+          <div class="e">
+            <button (click)="handleCart(value)">Add To Cart</button>
+          </div>
+        </div>
+      </div>
+      <br />
+    </div>
+  </div>
+</div>
