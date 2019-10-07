@@ -6,6 +6,7 @@ import {
   ValidatorFn
 } from "@angular/forms";
 import { FormBuilder, Validators } from "@angular/forms";
+import { DataServiceService } from "../service/data-service.service";
 @Component({
   selector: "app-login",
   templateUrl: "./login.component.html",
@@ -13,7 +14,10 @@ import { FormBuilder, Validators } from "@angular/forms";
 })
 export class LoginComponent implements OnInit {
   myGroup: FormGroup;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private service: DataServiceService
+  ) {}
 
   ngOnInit() {
     /*this.myGroup = new FormGroup({
@@ -37,11 +41,15 @@ export class LoginComponent implements OnInit {
     );
     // { validators: this.MustMatch() };
   }
-  handleSubmit() {
-    console.log(this.myGroup);
+  handleSubmit(arg) {
+    //console.log(this.myGroup);
     //console.log(this.myGroup.touched);
     //console.log(this.myGroup.invalid);
     // this.myGroup.reset();
+    console.log(arg);
+    this.service
+      .register(arg)
+      .subscribe(data => console.log(data), err => console.log(err));
   }
   handleLoad() {
     console.log(this.myGroup);
